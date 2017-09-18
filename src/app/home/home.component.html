@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>We're now at {{ totalMiles }} miles. Thank you!</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Who's submitting miles</h3>
+      <div class="bs-example" id="miles">
+        <div *ngFor="let mile of miles | async">
+          <div class="bubble" [class.you]="isYou(mile.email)" [class.me]="isMe(mile.email)">
+            <p>A {{ mile.activity }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
+            <div class="author">
+              by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"hh:mm a" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!authService.authenticated">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Login to submit your miles</h3>
+      <p>We want you to help promote awareness to this disease, and through the Basil Skyers Foundation and it's partnership with Liv AWOL, we'd like you to donate your cycling, running, walking and swimming miles!</p>
+      <h3>What is multiple myeloma?</h3>
+      <p>Multiple myeloma is a cancer of the blood plasma and starts in white cells in the bone marrow and is the second most common yet little known blood cancer.  There are 4,800 new cases diagnosed in the UK each year and the first family, friends or colleagues hear the words multiple myeloma is often, at the point of diagnosis. Multiple myeloma attacks the blood plasma cells. The blood plasma cells normally produce antibodies which help to fight infection but in the case of multiple myeloma, they start to proliferate and produce rogue proteins which have no use or function.  The proliferation of the cancerous cells in the plasma displaces healthy red and white cells from the bone marrow and this leads to anaemia and fatigue, frequent infections, and unexplained bruising and bleeding.  These symptoms are also often accompanied by bone pain particularly in the lower back and the ribs, but any part of the long bones which produce blood cells can be affected.</p>
+    </div>
+</div>
+
+  <div class="row" *ngIf="authService.authenticated">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Submit your miles</h3>
+      <div class="form-group">
+        <label for="measurement" class="form-label">Measurement</label>
+        <select name="measurement" [(ngModel)]="measurement" class="form-control" required>
+              <option value="miles">miles</option>
+              <option value="kms">kilometres</option>
+            </select>
+      </div>
+      <div class="form-group">
+        <label for="activity" class="form-label">Activity</label>
+        <select name="activity" [(ngModel)]="activity" class="form-control" required>
+                <option value="cycle">cycle</option>
+                <option value="run">run</option>
+                <option value="swim">swim</option>
+                <option value="walk">walk</option>
+              </select>
+      </div>
+      <div class="form-group">
+        <label for="distance" class="form-label">Distance</label>
+        <input type="number" name="distance" [(ngModel)]="distance" class="form-control" required>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-success" (click)="submitMiles()">Submit Miles</button>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="authService.authenticated && state > 0">
+    <div class="col-md-8 col-md-offset-2">
+      <br>
+      <div class="alert alert-info" role="alert" *ngIf="state === 1"> <strong>Heads up!</strong> Tell us how far you've gone today. </div>
+      <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to "A Million Miles for Multiple Myeloma".
+        Together we have achieved {{ totalMiles }} miles! We hope you enjoyed your {{ activity }}. </div>
+      <div class="alert alert-warning" role="alert" *ngIf="state === 3"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
+        If it is, then fantastic, just click the verify button to submit your epic {{ activity }} </div>
+      <button class="btn btn-success" *ngIf="verifyActivity" (click)="verify()">Verify Activity</button>
+      <button class="btn btn-danger" *ngIf="verifyActivity" (click)="cancel()">Cancel Activity</button>
+    </div>
+  </div>
+</div>
