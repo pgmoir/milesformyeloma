@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <h4>We're now at {{ totalMiles }} miles. Thank you!</h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <h3>Who's submitting miles</h3>
       <div class="bs-example" id="miles">
         <div *ngFor="let mile of miles | async">
@@ -22,16 +22,18 @@
   </div>
 
   <div class="row" *ngIf="!authService.authenticated">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <h3>Login to submit your miles</h3>
-      <p>We want you to help promote awareness to this disease, and through the Basil Skyers Foundation and it's partnership with Liv AWOL, we'd like you to donate your cycling, running, walking and swimming miles!</p>
+      <p>The Basil Skyers Myeloma Foundation wants you to help promote awareness about multiple myeloma, the second most common yet little known blood cancer disease. The Foundation is partnering with Liv AWOL Junior/Under 23 Women’s Race Cycling Team, and Cycles UK. In support of us, we would like you to donate your cycling, running, walking and swimming miles! That is all we need you to do!</p>
       <h3>What is multiple myeloma?</h3>
-      <p>Multiple myeloma is a cancer of the blood plasma and starts in white cells in the bone marrow and is the second most common yet little known blood cancer.  There are 4,800 new cases diagnosed in the UK each year and the first family, friends or colleagues hear the words multiple myeloma is often, at the point of diagnosis. Multiple myeloma attacks the blood plasma cells. The blood plasma cells normally produce antibodies which help to fight infection but in the case of multiple myeloma, they start to proliferate and produce rogue proteins which have no use or function.  The proliferation of the cancerous cells in the plasma displaces healthy red and white cells from the bone marrow and this leads to anaemia and fatigue, frequent infections, and unexplained bruising and bleeding.  These symptoms are also often accompanied by bone pain particularly in the lower back and the ribs, but any part of the long bones which produce blood cells can be affected.</p>
+      <p>Multiple myeloma, often called ‘myeloma’ is an incurable cancer of the blood plasma. There are 4,800 new cases diagnosed in the UK each year and the first family, friends or colleagues hear the words myeloma, is often, at the point of diagnosis. Multiple myeloma attacks the blood plasma cells. The blood plasma cells normally produce antibodies that help to fight infection but in the case of myeloma, they start to proliferate and produce rogue proteins that have no use or function. The proliferation of the cancerous cells in the blood plasma displaces healthy red and white cells from the bone marrow causing anaemia and fatigue, frequent infections, and unexplained bruising and bleeding. These symptoms are also often accompanied by bone pain particularly in the lower back and the ribs, and sometimes the long bones.</p>
+      <p>Myeloma can affect anyone, both men and women. However, the incidence of myeloma is higher in older people, and in particular older men. For some reason also, black African and black Caribbean people have a higher risk than the population generally and they are diagnosed at a younger age. While myeloma is incurable, there are many treatments that can halt the progress of the disease for ten years or more, and new treatments are continually being developed.</p>
+      <p>Please help us to raise awareness by donating your cycling, running, walking and swimming miles!</p>
     </div>
 </div>
 
   <div class="row" *ngIf="authService.authenticated">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <h3>Submit your miles</h3>
       <div class="form-group">
         <label for="measurement" class="form-label">Measurement</label>
@@ -59,10 +61,10 @@
     </div>
   </div>
   <div class="row" *ngIf="authService.authenticated && state > 0">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <br>
       <div class="alert alert-info" role="alert" *ngIf="state === 1"> <strong>Heads up!</strong> Tell us how far you've gone today. </div>
-      <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to "A Million Miles for Multiple Myeloma".
+      <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to The Basil Skyers Myeloma Foundation's "A Million Miles for Multiple Myeloma".
         Together we have achieved {{ totalMiles }} miles! We hope you enjoyed your {{ activity }}. </div>
       <div class="alert alert-warning" role="alert" *ngIf="state === 3"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
         If it is, then fantastic, just click the verify button to submit your epic {{ activity }} </div>
