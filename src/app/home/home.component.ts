@@ -39,14 +39,27 @@ export class HomeComponent implements OnInit {
   }
 
   resetForm() {
-    this.distance = 0;
+    this.distance = null;
     this.verifyActivity = false;
     this.verified = false;
   }
 
+  needToVerify(distanceInMiles: number) {
+    if (!this.verified && 
+      ((this.activity === "cycle" && distanceInMiles > 110) ||
+      (this.activity === "run" && distanceInMiles > 30) ||
+      (this.activity === "walk" && distanceInMiles > 30) ||
+      (this.activity === "swim" && distanceInMiles > 5) ||
+      (this.activity === "static-cycle" && distanceInMiles > 30))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   submitMiles() {
     const distanceInMiles = (this.measurement === 'kms') ? this.distance / 1.609344 : this.distance;
-    if (!this.verified && distanceInMiles > 200) {
+    if (this.needToVerify(distanceInMiles)) {
       this.verifyActivity = true;
       this.state = 3;
       return;
