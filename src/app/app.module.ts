@@ -15,13 +15,19 @@ import { FormsModule } from '@angular/forms';
 // Do not import from 'firebase' as you'd lose the tree shaking benefits
 import * as firebase from 'firebase/app';
 import { FooterComponent } from './core/footer/footer.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    FeedbackComponent,
+    StatsComponent
    ],
   imports: [
     BrowserModule,

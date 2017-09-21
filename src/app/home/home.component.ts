@@ -14,9 +14,12 @@ import * as firebase from 'firebase/app';
 export class HomeComponent implements OnInit {
   miles: FirebaseListObservable<any>;
   currentTotals: FirebaseObjectObservable<any>;
+
   measurement: string;
   activity: string;
   distance: number;
+  reason: string;
+
   verifyActivity = false;
   verified = false;
   totalMiles = 0;
@@ -39,7 +42,8 @@ export class HomeComponent implements OnInit {
   }
 
   resetForm() {
-    this.distance = 0;
+    this.distance = null;
+    this.reason = null;
     this.verifyActivity = false;
     this.verified = false;
   }
@@ -56,6 +60,7 @@ export class HomeComponent implements OnInit {
       measurement: this.measurement,
       activity: this.activity,
       distance: this.distance,
+      reason: this.reason,
       distanceInMiles: distanceInMiles,
       displayName: this.authService.displayName,
       email: this.authService.email,

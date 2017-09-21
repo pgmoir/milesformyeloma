@@ -10,8 +10,10 @@
       <h3>Who's submitting miles</h3>
       <div class="bs-example" id="miles">
         <div *ngFor="let mile of miles | async">
-          <div class="bubble" [class.you]="isYou(mile.email)" [class.me]="isMe(mile.email)">
+          <div class="bubble {{ mile.activity }}" [class.you]="isYou(mile.email)" [class.me]="isMe(mile.email)">
+            <img class="activity-image" src="../../../assets/{{ mile.activity }}.svg">
             <p>A {{ mile.activity }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
+            <div class="reason" *ngIf="mile.reason != null">{{ mile.reason }}</div>
             <div class="author">
               by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"hh:mm a" }}
             </div>
@@ -54,6 +56,10 @@
       <div class="form-group">
         <label for="distance" class="form-label">Distance</label>
         <input type="number" name="distance" [(ngModel)]="distance" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="reason" class="form-label">Reason / Comments</label>
+        <input type="textarea" name="reason" [(ngModel)]="reason" class="form-control">
       </div>
       <div class="form-group">
           <button class="btn btn-success" (click)="submitMiles()">Submit Miles</button>
