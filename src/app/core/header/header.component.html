@@ -2,7 +2,7 @@
   <nav class="navbar-inverse navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3" (click)="activateBurgerBun()">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -10,7 +10,7 @@
           </button>
         <a class="navbar-brand" style="cursor: pointer;" routerLink="/">The Basil Skyers Myeloma Foundation</a>
       </div>
-      <div id="navbar3" class="navbar-collapse collapse">
+      <div id="navbar3" class="navbar-collapse" [ngClass]="{ 'collapse': topMenu }">
         <ul class="nav navbar-nav navbar-right">
           <li><a style="cursor: pointer;" (click)="login()" *ngIf="!authService.authenticated">Login</a></li>
           <li><a style="cursor: pointer;" routerLink="/stats" *ngIf="authService.authenticated">Stats</a></li>

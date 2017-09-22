@@ -9,6 +9,8 @@ import { AuthService } from './../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  topMenu = true;
+
   constructor(private afAuth: AngularFireAuth, private authService: AuthService) {}
 
   login() {
@@ -17,5 +19,11 @@ export class HeaderComponent {
 
   logout() {
       this.afAuth.auth.signOut();
+  }
+
+  activateBurgerBun() {
+    this.topMenu = !this.topMenu;
+    console.log(this.topMenu, '>> topMenu');
+
   }
 }
