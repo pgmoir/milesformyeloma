@@ -21,7 +21,6 @@
 }
 .author {
   font-size: 12px;
-  font-style: italic;
 }
 .send-message {
   color: #ffffff;
@@ -57,20 +56,8 @@ p {
   position: relative;
   vertical-align: top;
 }
-.bubble.swim {
-  background-color: #0076c6;
-}
-.bubble.cycle {
-  background-color: #78a700;
-}
-.bubble.walk {
-  background-color: #c6005c;
-}
-.bubble.run {
-  background-color: #dd7800;
-}
 .bubble::before {
-  background-color: #F2F2F2;
+  /* background-color: #F2F2F2; */
   content: "\00a0";
   display: block;
   height: 16px;
@@ -102,6 +89,33 @@ p {
   box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
   right: -9px;
 }
+.bubble {
+  color: #F0F0F0;
+}
+.bubble.swim {
+  background-color: #0076c6;
+}
+.bubble.swim::before {
+  background-color: #0076c6;
+}
+.bubble.cycle {
+  background-color: #78a700;
+}
+.bubble.cycle::before {
+  background-color: #78a700;
+}
+.bubble.walk {
+  background-color: #c6005c;
+}
+.bubble.walk:before {
+  background-color: #c6005c;
+}
+.bubble.run {
+  background-color: #dd7800;
+}
+.bubble.run::before {
+  background-color: #dd7800;
+}
 .bs-example+.highlight, .bs-example+.zero-clipboard+.highlight {
   margin: 0px -15px 15px;
   border-width: 0 0 1px;
@@ -115,7 +129,8 @@ p {
   border-radius: 4px;
 }
 .activity-image {
-  width: 15%;
+  width: 64px;
+  padding-top: 5px;
   margin: 0 auto;
   max-width: 100%;
   float: right;

@@ -15,7 +15,7 @@
             <p>A {{ mile.activity }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
             <div class="reason" *ngIf="mile.reason != null">{{ mile.reason }}</div>
             <div class="author">
-              by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"hh:mm a" }}
+              by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"h:mm a" }}
             </div>
           </div>
         </div>
