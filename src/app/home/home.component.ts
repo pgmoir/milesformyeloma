@@ -14,9 +14,12 @@ import * as firebase from 'firebase/app';
 export class HomeComponent implements OnInit {
   miles: FirebaseListObservable<any>;
   currentTotals: FirebaseObjectObservable<any>;
+
   measurement: string;
   activity: string;
   distance: number;
+  reason: string;
+
   verifyActivity = false;
   verified = false;
   totalMiles = 0;
@@ -40,17 +43,18 @@ export class HomeComponent implements OnInit {
 
   resetForm() {
     this.distance = null;
+    this.reason = null;
     this.verifyActivity = false;
     this.verified = false;
   }
 
   needToVerify(distanceInMiles: number) {
-    if (!this.verified && 
-      ((this.activity === "cycle" && distanceInMiles > 110) ||
-      (this.activity === "run" && distanceInMiles > 30) ||
-      (this.activity === "walk" && distanceInMiles > 30) ||
-      (this.activity === "swim" && distanceInMiles > 5) ||
-      (this.activity === "static-cycle" && distanceInMiles > 30))) {
+    if (!this.verified &&
+      ((this.activity === 'cycle' && distanceInMiles > 110) ||
+      (this.activity === 'run' && distanceInMiles > 30) ||
+      (this.activity === 'walk' && distanceInMiles > 30) ||
+      (this.activity === 'swim' && distanceInMiles > 5) ||
+      (this.activity === 'static-cycle' && distanceInMiles > 30))) {
       return true;
     } else {
       return false;
@@ -69,6 +73,7 @@ export class HomeComponent implements OnInit {
       measurement: this.measurement,
       activity: this.activity,
       distance: this.distance,
+      reason: this.reason,
       distanceInMiles: distanceInMiles,
       displayName: this.authService.displayName,
       email: this.authService.email,

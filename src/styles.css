@@ -3,3 +3,27 @@
   background-color: #3c3d41;
   color: #ffffff;
 }
+
+.bs-callout {
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+.bs-callout-info {
+  border-left-color: #1b809e;
+}
+
+.bs-callout-info h4 {
+  color: #1b809e;
+}
+
+.navbar-brand {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 60px);
+}
+
