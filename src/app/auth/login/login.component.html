@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <img src="./../../assets/lock.svg" class="lock">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="alert alert-danger" *ngIf="error">
+      {{ error }}
+  </div>
+  <div class="row">
+    <button class="facebook" (click)="loginFacebook()">Login With Facebook</button>
+  </div>
+  <div class="row">
+      <button class="google" (click)="loginGoogle()">Login With Google</button>
+  </div>
+  <div class="row">
+      <button class="email" routerLink="/login-email">Email</button>
+  </div>
+  <div class="row">
+      <a routerLink="/register-email" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+  </div>
+</div>

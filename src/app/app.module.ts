@@ -18,6 +18,9 @@ import { FooterComponent } from './core/footer/footer.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { StatsComponent } from './stats/stats.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginEmailComponent } from './auth/login-email/login-email.component';
+import { RegisterEmailComponent } from './auth/register-email/register-email.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { StatsComponent } from './stats/stats.component';
     FooterComponent,
     HeaderComponent,
     FeedbackComponent,
-    StatsComponent
+    StatsComponent,
+    LoginComponent,
+    LoginEmailComponent,
+    RegisterEmailComponent
    ],
   imports: [
     BrowserModule,

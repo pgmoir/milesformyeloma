@@ -1,7 +1,6 @@
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../../auth/auth.service';
 import { Component } from '@angular/core';
-import * as firebase from 'firebase/app';
-import { AuthService } from './../../auth/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +11,6 @@ export class HeaderComponent {
   topMenu = true;
 
   constructor(private afAuth: AngularFireAuth, private authService: AuthService) {}
-
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
 
   logout() {
       this.afAuth.auth.signOut();
