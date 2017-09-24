@@ -14,7 +14,7 @@
         <div *ngFor="let mile of miles | async">
           <div class="bubble {{ mile.activity }}" [class.you]="isYou(mile.email)" [class.me]="isMe(mile.email)">
             <img class="activity-image" src="../../../assets/{{ mile.activity }}.svg">
-            <p>A {{ mile.activity }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
+            <p>A {{ mile.activity.replace('-', ' ') }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
             <div class="reason" *ngIf="mile.reason != null">{{ mile.reason }}</div>
             <div class="author">
               by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"h:mm a" }}
@@ -82,7 +82,7 @@
                 <option value="run">run</option>
                 <option value="swim">swim</option>
                 <option value="walk">walk</option>
-                <option value="static">static</option>
+                <option value="static-cycle">static cycle</option>
               </select>
         </div>
         <div class="form-group">

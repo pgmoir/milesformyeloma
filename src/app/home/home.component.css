@@ -116,6 +116,12 @@ p {
 .bubble.run::before {
   background-color: #dd7800;
 }
+.bubble.static-cycle {
+  background-color: #036652;
+}
+.bubble.static-cycle::before {
+  background-color: #036652;
+}
 .bs-example+.highlight, .bs-example+.zero-clipboard+.highlight {
   margin: 0px -15px 15px;
   border-width: 0 0 1px;
