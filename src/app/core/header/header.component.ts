@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -10,15 +11,20 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class HeaderComponent {
   topMenu = true;
 
-  constructor(private afAuth: AngularFireAuth, private authService: AuthService) {}
+  constructor(private afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {}
 
   logout() {
-      this.afAuth.auth.signOut();
+    this.topMenu = true;
+    this.afAuth.auth.signOut();
   }
 
   activateBurgerBun() {
     this.topMenu = !this.topMenu;
     console.log(this.topMenu, '>> topMenu');
+  }
 
+  navigateAway(navigateTo: string) {
+    this.topMenu = true;
+    this.router.navigate([navigateTo]);
   }
 }
