@@ -11,7 +11,7 @@
       <form (ngSubmit)="register(f)" #f="ngForm">
         <div class="form-group">
           <label for="email" class="form-label">Email</label>
-          <input type="text" name="email" (ngModel)="email" class="form-control" required>
+          <input type="text" name="email" (ngModel)="email" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
         </div>
         <div class="form-group">
           <label for="password" class="form-label">Password</label>

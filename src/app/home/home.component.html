@@ -60,9 +60,10 @@
       <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to The Basil Skyers Myeloma Foundation's "A
         Million Miles for Multiple Myeloma". Together we have achieved {{ totalMiles }} miles! We hope you enjoyed your {{
         activity }}.</div>
-      <div class="alert alert-warning" role="alert" *ngIf="state === 3"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
-        If it is, then fantastic, just click the verify button to submit your epic {{ activity }}.</div>
-      <button class="btn btn-success" *ngIf="verifyActivity" (click)="verify()">Verify Activity</button>
+      <div class="alert alert-warning" role="alert" *ngIf="state === 3 || state === 4"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
+        If it is, then fantastic, just enter a reason for the activity and click the verify button to submit your epic {{ activity }}.</div>
+      <div class="alert alert-warning" role="alert" *ngIf="state === 5"> <strong>Sorry!</strong> We cannot accept the distance entered at this time. If this distance was covered over a number of days, please enter as split entries or submit your miles through our feedback option on the menu.</div>
+      <button class="btn btn-success" *ngIf="verifyActivity" (click)="verify()" [disabled]="!reason">Verify Activity</button>
       <button class="btn btn-danger" *ngIf="verifyActivity" (click)="cancel()">Cancel Activity</button>
     </div>
 
@@ -87,7 +88,7 @@
         </div>
         <div class="form-group">
           <label for="distance" class="form-label">Distance</label>
-          <input type="number" name="distance" [(ngModel)]="distance" class="form-control" required>
+          <input type="number" name="distance" [(ngModel)]="distance" class="form-control" required pattern="[0-9]*" minlength="1" maxlength="3">
         </div>
         <div class="form-group">
           <label for="reason" class="form-label">Reason / Comments</label>

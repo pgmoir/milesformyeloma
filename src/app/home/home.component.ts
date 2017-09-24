@@ -53,8 +53,20 @@ export class HomeComponent implements OnInit {
       ((this.activity === 'cycle' && distanceInMiles > 110) ||
       (this.activity === 'run' && distanceInMiles > 30) ||
       (this.activity === 'walk' && distanceInMiles > 30) ||
-      (this.activity === 'swim' && distanceInMiles > 5) ||
+      (this.activity === 'swim' && distanceInMiles > 15) ||
       (this.activity === 'static-cycle' && distanceInMiles > 30))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  doubleCheckDistance(distanceInMiles: number) {
+    if ((this.activity === 'cycle' && (distanceInMiles > 250 || distanceInMiles < 1)) ||
+      (this.activity === 'run' && (distanceInMiles > 60 || distanceInMiles < 1)) ||
+      (this.activity === 'walk' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
+      (this.activity === 'swim' && (distanceInMiles > 30 || distanceInMiles < 1)) ||
+      (this.activity === 'static-cycle' && (distanceInMiles > 30 || distanceInMiles < 1))) {
       return true;
     } else {
       return false;
@@ -66,6 +78,11 @@ export class HomeComponent implements OnInit {
     if (this.needToVerify(distanceInMiles)) {
       this.verifyActivity = true;
       this.state = 3;
+      return;
+    }
+
+    if (this.doubleCheckDistance(distanceInMiles)) {
+      this.state = 5;
       return;
     }
 
@@ -102,6 +119,10 @@ export class HomeComponent implements OnInit {
   }
 
   verify() {
+    if (this.reason === null) {
+      this.state = 4;
+      return;
+    }
     this.verified = true;
     this.submitMiles();
   }
