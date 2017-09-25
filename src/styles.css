@@ -24,6 +24,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: calc(100% - 60px);
+  width: calc(100% - 60px);
+}
+
+@media (min-width: 768px) {
+  .navbar-header {
+      min-width: 400px;
+  }
 }
 
