@@ -26,10 +26,12 @@ export class HomeComponent implements OnInit {
   state = 0;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
+    console.log('home', this.authService.uid);
     this.miles = db.list('miles', { query: { limitToLast: 5 } });
     this.currentTotals = db.object('/stats/m4m/all/total', { preserveSnapshot: true });
     this.currentTotals.subscribe(snapshot => {
       console.log(snapshot.val());
+      console.log(this.authService.uid);
       this.totalMiles = snapshot.val();
     });
   }
@@ -106,6 +108,7 @@ export class HomeComponent implements OnInit {
   }
 
   private updateMiles(id: string, activity: string, distance: number) {
+    console.log('submitting', id);
     const url = `/stats/${id}/${activity}/total`;
     this.db.object(url).$ref.ref.transaction(total => Math.round((total + distance) * 100) / 100);
   }
