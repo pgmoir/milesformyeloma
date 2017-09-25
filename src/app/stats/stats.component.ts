@@ -11,12 +11,12 @@ import { Component, OnInit, Injectable } from '@angular/core';
 export class StatsComponent implements OnInit {
   userStats: FirebaseObjectObservable<any>;
 
-  totalAll: number;
-  totalCycle: number;
-  totalRun: number;
-  totalWalk: number;
-  totalSwim: number;
-  totalStaticCycle: number;
+  totalAll = 0;
+  totalCycle = 0;
+  totalRun = 0;
+  totalWalk = 0;
+  totalSwim = 0;
+  totalStaticCycle = 0;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.authService.user.subscribe(
@@ -28,12 +28,12 @@ export class StatsComponent implements OnInit {
           this.userStats.subscribe(
             (stats) => {
               console.log(stats.val().all.total);
-              this.totalAll = stats.val().all.total;
-              this.totalCycle = stats.val().cycle.total;
-              this.totalRun = stats.val().run.total;
-              this.totalWalk = stats.val().walk.total;
-              this.totalSwim = stats.val().swim.total;
-              this.totalStaticCycle = stats.val()['static-cycle'].total;
+              this.totalAll = stats.val().all ? stats.val().all.total : 0;
+              this.totalCycle = stats.val().cycle ? stats.val().cycle.total : 0;
+              this.totalRun = stats.val().run ? stats.val().run.total : 0;
+              this.totalWalk = stats.val().walk ? stats.val().walk.total : 0;
+              this.totalSwim = stats.val().swim ? stats.val().swim.total : 0;
+              this.totalStaticCycle = stats.val()['static-cycle'] ? stats.val()['static-cycle'].total : 0;
             }
           );
         }
