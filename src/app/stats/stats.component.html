@@ -6,27 +6,31 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-2 col-md-4 col-sm-6 all">
+    <div class="col-lg-2 col-md-4 col-sm-6 all" *ngIf="totalAll > 0">
       <h6>Total</h6>
       <span>{{ totalAll }}</span>
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 cycle">
+    <div class="col-lg-2 col-md-4 col-sm-6 cycle" *ngIf="totalCycle > 0">
       <h6>Cycle</h6>
       <span>{{ totalCycle }}</span>
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 run">
+    <div class="col-lg-2 col-md-4 col-sm-6 run" *ngIf="totalRun > 0">
       <h6>Run</h6>
       <span>{{ totalRun }}</span>
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 swim">
+    <div class="col-lg-2 col-md-4 col-sm-6 swim" *ngIf="totalSwim > 0">
       <h6>Swim</h6>
       <span>{{ totalSwim }}</span>
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 walk">
+    <div class="col-lg-2 col-md-4 col-sm-6 walk" *ngIf="totalWalk > 0">
       <h6>Walk</h6>
       <span>{{ totalWalk }}</span>
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 static-cycle">
+    <div class="col-lg-2 col-md-4 col-sm-6 row" *ngIf="totalRow > 0">
+      <h6>Row</h6>
+      <span>{{ totalRow }}</span>
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-6 static-cycle" *ngIf="totalStaticCycle > 0">
       <h6>Static Cycle</h6>
       <span>{{ totalStaticCycle }}</span>
     </div>

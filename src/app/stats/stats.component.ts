@@ -16,6 +16,7 @@ export class StatsComponent implements OnInit {
   totalRun = 0;
   totalWalk = 0;
   totalSwim = 0;
+  totalRow = 0;
   totalStaticCycle = 0;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
@@ -33,6 +34,7 @@ export class StatsComponent implements OnInit {
               this.totalRun = stats.val().run ? stats.val().run.total : 0;
               this.totalWalk = stats.val().walk ? stats.val().walk.total : 0;
               this.totalSwim = stats.val().swim ? stats.val().swim.total : 0;
+              this.totalRow = stats.val().row ? stats.val().row.total : 0;
               this.totalStaticCycle = stats.val()['static-cycle'] ? stats.val()['static-cycle'].total : 0;
             }
           );

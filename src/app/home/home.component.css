@@ -116,6 +116,12 @@ p {
 .bubble.run::before {
   background-color: #dd7800;
 }
+.bubble.row {
+  background-color: #73491A;
+}
+.bubble.row::before {
+  background-color: #73491A;
+}
 .bubble.static-cycle {
   background-color: #036652;
 }
