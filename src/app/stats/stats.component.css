@@ -1,0 +1,29 @@
+.bubble {
+  color: #F0F0F0;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  min-height: 300px;
+}
+.bubble.all {
+  background-color: #042840;
+}
+.bubble.swim {
+  background-color: #0076c6;
+}
+.bubble.cycle {
+  background-color: #78a700;
+}
+.bubble.walk {
+  background-color: #c6005c;
+}
+.bubble.run {
+  background-color: #dd7800;
+}
+.bubble.row {
+  background-color: #73491A;
+}
+.bubble.static-cycle {
+  background-color: #036652;
+}
