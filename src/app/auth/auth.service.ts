@@ -16,10 +16,8 @@ export class AuthService {
     this.user.subscribe(
       (auth) => {
         if (auth == null) {
-          console.log('user is not logged in');
           this.authenticated = false;
         } else {
-          console.log('user is logged in');
           this.displayName = auth.displayName;
           this.email = auth.email;
           this.uid = auth.uid;

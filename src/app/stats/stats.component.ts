@@ -22,13 +22,10 @@ export class StatsComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.authService.user.subscribe(
         (user) => {
-          console.log('stats', this.authService.uid);
           const url = `/stats/${this.authService.uid}`;
-          console.log('url>>', url);
           this.userStats = db.object(url, { preserveSnapshot: true });
           this.userStats.subscribe(
             (stats) => {
-              console.log(stats.val().all.total);
               this.totalAll = stats.val().all ? stats.val().all.total : 0;
               this.totalCycle = stats.val().cycle ? stats.val().cycle.total : 0;
               this.totalRun = stats.val().run ? stats.val().run.total : 0;

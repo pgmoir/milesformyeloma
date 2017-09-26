@@ -20,7 +20,6 @@ export class HeaderComponent {
 
   activateBurgerBun() {
     this.topMenu = !this.topMenu;
-    console.log(this.topMenu, '>> topMenu');
   }
 
   navigateAway(navigateTo: string) {

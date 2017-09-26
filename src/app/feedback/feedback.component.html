@@ -10,11 +10,18 @@
     <div class="col-md-12">
       <form>
         <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" name="email" [(ngModel)]="email" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"required>
+        </div>
+        <div class="form-group">
           <label for="comments" class="form-label">Feedback</label>
-          <input type="textarea" name="comments" [(ngModel)]="comments" class="form-control">
+          <textarea rows="5" name="comments" [(ngModel)]="comments" class="form-control"></textarea>
         </div>
         <div class="form-group">
             <button class="btn btn-success" (click)="submitFeedback()">Submit Feedback</button>
+        </div>
+        <div class="alert alert-info" *ngIf="thanks">
+          {{ thanks }}
         </div>
       </form>
     </div>
