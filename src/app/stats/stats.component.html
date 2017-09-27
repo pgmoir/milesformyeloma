@@ -7,40 +7,54 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble all" *ngIf="totalAll > 0">
-      <h4>Total</h4>
-      <h4>{{ totalAll }} miles</h4>
-      <img class="activity-image" src="../../../assets/all.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalAll > 0">
+      <div class="bubble activity-all">
+          <h4>Total</h4>
+          <h4>{{ totalAll }} miles</h4>
+          <img class="activity-image" src="../../../assets/all.svg">
+        </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble cycle" *ngIf="totalCycle > 0">
-      <h4>Cycle</h4>
-      <h4>{{ totalCycle }} miles</h4>
-      <img class="activity-image" src="../../../assets/cycle.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalCycle > 0">
+        <div class="bubble activity-cycle">
+            <h4>Cycle</h4>
+            <h4>{{ totalCycle }} miles</h4>
+            <img class="activity-image" src="../../../assets/cycle.svg">
+          </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble run" *ngIf="totalRun > 0">
-      <h4>Run</h4>
-      <h4>{{ totalRun }} miles</h4>
-      <img class="activity-image" src="../../../assets/run.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalRun > 0">
+      <div class="bubble activity-run">
+          <h4>Run</h4>
+          <h4>{{ totalRun }} miles</h4>
+          <img class="activity-image" src="../../../assets/run.svg">
+        </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble swim" *ngIf="totalSwim > 0">
-      <h4>Swim</h4>
-      <h4>{{ totalSwim }} miles</h4>
-      <img class="activity-image" src="../../../assets/swim.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalSwim > 0">
+      <div class="bubble activity-swim">
+          <h4>Swim</h4>
+          <h4>{{ totalSwim }} miles</h4>
+          <img class="activity-image" src="../../../assets/swim.svg">
+        </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble walk" *ngIf="totalWalk > 0">
-      <h4>Walk</h4>
-      <h4>{{ totalWalk }} miles</h4>
-      <img class="activity-image" src="../../../assets/walk.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalWalk > 0">
+      <div class="bubble activity-walk">
+          <h4>Walk</h4>
+          <h4>{{ totalWalk }} miles</h4>
+          <img class="activity-image" src="../../../assets/walk.svg">
+        </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble row" *ngIf="totalRow > 0">
-      <h4>Row</h4>
-      <h4>{{ totalRow }} miles</h4>
-      <img class="activity-image" src="../../../assets/row.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalRow > 0">
+      <div class="bubble activity-row">
+          <h4>Row</h4>
+          <h4>{{ totalRow }} miles</h4>
+          <img class="activity-image" src="../../../assets/row.svg">
+        </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 bubble static-cycle" *ngIf="totalStaticCycle > 0">
-      <h4>Static Cycle</h4>
-      <h4>{{ totalStaticCycle }} miles</h4>
-      <img class="activity-image" src="../../../assets/static-cycle.svg">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1" *ngIf="totalStaticCycle > 0">
+      <div class="bubble activity-static-cycle">
+          <h4>Static Cycle</h4>
+          <h4>{{ totalStaticCycle }} miles</h4>
+          <img class="activity-image" src="../../../assets/static-cycle.svg">
+      </div>
     </div>
   </div>
 </div>

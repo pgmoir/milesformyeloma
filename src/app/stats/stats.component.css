@@ -1,29 +1,29 @@
 .bubble {
   color: #F0F0F0;
-  margin: 10px;
   border-radius: 15px;
   padding: 10px;
   text-align: center;
   min-height: 300px;
+  margin-bottom: 10px;
 }
-.bubble.all {
+.bubble.activity-all {
   background-color: #042840;
 }
-.bubble.swim {
+.bubble.activity-swim {
   background-color: #0076c6;
 }
-.bubble.cycle {
+.bubble.activity-cycle {
   background-color: #78a700;
 }
-.bubble.walk {
+.bubble.activity-walk {
   background-color: #c6005c;
 }
-.bubble.run {
+.bubble.activity-run {
   background-color: #dd7800;
 }
-.bubble.row {
+.bubble.activity-row {
   background-color: #73491A;
 }
-.bubble.static-cycle {
+.bubble.activity-static-cycle {
   background-color: #036652;
 }
