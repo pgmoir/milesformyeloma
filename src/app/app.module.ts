@@ -21,6 +21,7 @@ import { StatsComponent } from './stats/stats.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoginEmailComponent } from './auth/login-email/login-email.component';
 import { RegisterEmailComponent } from './auth/register-email/register-email.component';
+import { MyMilesComponent } from './my-miles/my-miles.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RegisterEmailComponent } from './auth/register-email/register-email.com
     StatsComponent,
     LoginComponent,
     LoginEmailComponent,
-    RegisterEmailComponent
+    RegisterEmailComponent,
+    MyMilesComponent
    ],
   imports: [
     BrowserModule,

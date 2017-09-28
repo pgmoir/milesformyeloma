@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
   totalMiles = 0;
   state = 0;
 
+  submit: {};
+
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.miles = db.list('miles', { query: { limitToLast: 5 } });
     this.currentTotals = db.object('/stats/m4m/all/total', { preserveSnapshot: true });
@@ -98,12 +100,24 @@ export class HomeComponent implements OnInit {
       timestamp: Date.now()
     };
 
-    this.miles.push(mile);
-    this.updateMiles('m4m', 'all', distanceInMiles);
-    this.updateMiles(this.authService.uid, 'all', distanceInMiles);
-    this.updateMiles(this.authService.uid, this.activity, distanceInMiles);
-    this.state = 2;
-    this.resetForm();
+    this.miles.push(mile).then(
+      (item) => {
+        this.submit = {
+          displayName: this.authService.displayName,
+          activity: this.activity,
+          distance: distanceInMiles,
+          reason: this.reason,
+          id: item.key
+        };
+
+        this.updateMiles('m4m', 'all', distanceInMiles);
+        this.updateMiles(this.authService.uid, 'all', distanceInMiles);
+        this.updateMiles(this.authService.uid, this.activity, distanceInMiles);
+
+        this.state = 2;
+        this.resetForm();
+      }
+    );
   }
 
   private updateMiles(id: string, activity: string, distance: number) {

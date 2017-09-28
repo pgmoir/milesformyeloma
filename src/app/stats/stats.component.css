@@ -6,24 +6,4 @@
   min-height: 300px;
   margin-bottom: 10px;
 }
-.bubble.activity-all {
-  background-color: #042840;
-}
-.bubble.activity-swim {
-  background-color: #0076c6;
-}
-.bubble.activity-cycle {
-  background-color: #78a700;
-}
-.bubble.activity-walk {
-  background-color: #c6005c;
-}
-.bubble.activity-run {
-  background-color: #dd7800;
-}
-.bubble.activity-row {
-  background-color: #73491A;
-}
-.bubble.activity-static-cycle {
-  background-color: #036652;
-}
+

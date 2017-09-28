@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.activity-all {
+  background-color: #042840;
+}
+.activity-swim {
+  background-color: #0076c6;
+}
+.activity-cycle {
+  background-color: #78a700;
+}
+.activity-walk {
+  background-color: #c6005c;
+}
+.activity-run {
+  background-color: #dd7800;
+}
+.activity-row {
+  background-color: #73491A;
+}
+.activity-static-cycle {
+  background-color: #036652;
+}
 .inverse {
   background-color: #3c3d41;
   color: #ffffff;

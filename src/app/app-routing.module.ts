@@ -1,3 +1,4 @@
+import { MyMilesComponent } from './my-miles/my-miles.component';
 import { RegisterEmailComponent } from './auth/register-email/register-email.component';
 import { LoginEmailComponent } from './auth/login-email/login-email.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'register-email', component: RegisterEmailComponent },
   { path: 'stats', component: StatsComponent },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'my-miles', component: MyMilesComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
