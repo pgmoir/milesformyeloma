@@ -59,8 +59,11 @@
       <div class="alert alert-info" role="alert" *ngIf="state === 1"> <strong>Okay!</strong> Tell us how far you've gone today. </div>
       <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to The Basil Skyers Myeloma Foundation's "A
         Million Miles for Multiple Myeloma". Together we have achieved {{ totalMiles }} miles! We hope you enjoyed your {{ submit.activity }}.</div>
-      <div *ngIf="state === 2" class="fb-share-button" data-href="https://millionmilesformyeloma.firebaseapp.com/my-miles" data-layout="button" data-size="small"
-        data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?id={{ submit.id }}%26activity={{ submit.activity }}%26distance={{ submit.distance }}%26reason={{ submit.reason }}">Share</a></div>
+      <div class="alert alert-info" role="alert" *ngIf="state === 2">
+        <strong>Hey!</strong> How about sharing your activity and promoting this challenge with your friends? 
+        <a class="fb-xfbml-parse-ignore alert-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?id={{ submit.id }}%26name={{ submit.name }}%26activity={{ submit.activity }}%26distance={{ submit.distance }}%26reason={{ submit.reason }}">Share on Facebook</a> or 
+        <a class="alert-link" target="_blank" href="http://twitter.com/share?text=I gave my miles&url=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?activity={{ submit.activity }}%26distance={{ submit.distance }}&hashtags=MillionMilesMyeloma">Tweet on Twitter</a>
+      </div>
       <div class="alert alert-warning" role="alert" *ngIf="state === 3 || state === 4"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
         If it is, then fantastic, just enter a reason for the activity and click the verify button to submit your epic {{ activity }}.</div>
       <div class="alert alert-warning" role="alert" *ngIf="state === 5"> <strong>Sorry!</strong> We cannot accept the distance entered at this time. If this distance was covered over a number

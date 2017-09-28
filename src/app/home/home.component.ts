@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
     this.miles.push(mile).then(
       (item) => {
         this.submit = {
-          displayName: this.authService.displayName,
+          name: this.authService.displayName,
           activity: this.activity,
           distance: distanceInMiles,
           reason: this.reason,

@@ -7,17 +7,23 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./my-miles.component.css']
 })
 export class MyMilesComponent implements OnInit {
+  name: string;
   activity: string;
   distance: number;
+  reason: string;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     // subscribe to router event
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      console.log(params);
+      this.name = params['name'] ? params['name'] : 'I';
       this.activity = params['activity'];
       this.distance = params['distance'];
+      this.reason = params['reason'] ? params['reason'] : '';
+
+      this.name = this.name.replace(/\+/g, ' ');
+      this.reason = this.reason.replace(/\+/g, ' ');
     });
   }
 

@@ -1,7 +1,8 @@
 <div class="container">
   <div class="jumbotron activity-{{ activity}}">
     <h1 class="text-center">I Gave My Miles!</h1>
-    <p class="text-center">I submitted my {{ activity }} of {{ distance }} miles to help support The Basil Skyers Myeloma Foundation's Million Miles Challenge.</p>
+    <p class="text-center">{{ name }} submitted a {{ activity }} of {{ distance }} miles to help support The Basil Skyers Myeloma Foundation's Million Miles Challenge.</p>
+    <p class="text-center" *ngIf="reason">{{ reason }}</p>
     <img class="activity-image" src="../../../assets/{{ activity }}.svg">
   </div>
 </div>
