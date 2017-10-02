@@ -122,6 +122,12 @@ p {
 .bubble.row::before {
   background-color: #73491A;
 }
+.bubble.golf {
+  background-color: #275A05;
+}
+.bubble.golf::before {
+  background-color: #275A05;
+}
 .bubble.static-cycle {
   background-color: #036652;
 }

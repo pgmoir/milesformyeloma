@@ -56,7 +56,8 @@ export class HomeComponent implements OnInit {
         (this.activity === 'walk' && distanceInMiles > 30) ||
         (this.activity === 'swim' && distanceInMiles > 15) ||
         (this.activity === 'row' && distanceInMiles > 30) ||
-        (this.activity === 'static-cycle' && distanceInMiles > 30))) {
+        (this.activity === 'golf' && distanceInMiles > 30) ||
+        (this.activity === 'static-cycle' && distanceInMiles > 50))) {
       return true;
     } else {
       return false;
@@ -68,8 +69,9 @@ export class HomeComponent implements OnInit {
       (this.activity === 'run' && (distanceInMiles > 60 || distanceInMiles < 1)) ||
       (this.activity === 'walk' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
       (this.activity === 'swim' && (distanceInMiles > 30 || distanceInMiles < 1)) ||
-      (this.activity === 'row' && (distanceInMiles > 30 || distanceInMiles < 1)) ||
-      (this.activity === 'static-cycle' && (distanceInMiles > 30 || distanceInMiles < 1))) {
+      (this.activity === 'row' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
+      (this.activity === 'golf' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
+      (this.activity === 'static-cycle' && (distanceInMiles > 150 || distanceInMiles < 1))) {
       return true;
     } else {
       return false;

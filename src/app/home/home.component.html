@@ -30,7 +30,7 @@
       <h3>Login to submit your miles</h3>
       <p>The Basil Skyers Myeloma Foundation wants you to help promote awareness about multiple myeloma, the second most common
         yet little known blood cancer disease. The Foundation is partnering with Liv AWOL Junior/Under 23 Women’s Race Cycling
-        Team, and Cycles UK. In support of us, we would like you to donate your cycling, running, walking and swimming miles!
+        Team, and Cycles UK. In support of us, we would like you to donate your miles covered while being active!
         That is all we need you to do!</p>
       <h3>What is multiple myeloma?</h3>
       <p>Multiple myeloma, often called ‘myeloma’ is an incurable cancer of the blood plasma. There are 4,800 new cases diagnosed
@@ -45,7 +45,8 @@
         particular older men. For some reason also, black African and black Caribbean people have a higher risk than the
         population generally and they are diagnosed at a younger age. While myeloma is incurable, there are many treatments
         that can halt the progress of the disease for ten years or more, and new treatments are continually being developed.</p>
-      <p>Please help us to raise awareness by donating your cycling, running, walking and swimming miles!</p>
+      <p>Please help us to raise awareness by donating the miles (or kms) covered while cycling, running, walking, swimming,
+        rowing, riding a static cycle and even those covered while playing golf!</p>
     </div>
   </div>
 
@@ -60,8 +61,8 @@
       <div class="alert alert-success" role="alert" *ngIf="state === 2"> <strong>Well done!</strong> Thank you so much for submitting your miles to The Basil Skyers Myeloma Foundation's "A
         Million Miles for Multiple Myeloma". Together we have achieved {{ totalMiles }} miles! We hope you enjoyed your {{ submit.activity }}.</div>
       <div class="alert alert-info" role="alert" *ngIf="state === 2">
-        <strong>Hey!</strong> How about sharing your activity and promoting this challenge with your friends? 
-        <a class="fb-xfbml-parse-ignore alert-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?id={{ submit.id }}%26name={{ submit.name }}%26activity={{ submit.activity }}%26distance={{ submit.distance }}%26reason={{ submit.reason }}">Share on Facebook</a> or 
+        <strong>Hey!</strong> How about sharing your activity and promoting this challenge with your friends?
+        <a class="fb-xfbml-parse-ignore alert-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?id={{ submit.id }}%26name={{ submit.name }}%26activity={{ submit.activity }}%26distance={{ submit.distance }}%26reason={{ submit.reason }}">Share on Facebook</a> or
         <a class="alert-link" target="_blank" href="http://twitter.com/share?text=I gave my miles&url=https%3A%2F%2Fmillionmilesformyeloma.firebaseapp.com/my-miles?activity={{ submit.activity }}%26distance={{ submit.distance }}&hashtags=MillionMilesMyeloma">Tweet on Twitter</a>
       </div>
       <div class="alert alert-warning" role="alert" *ngIf="state === 3 || state === 4"> <strong>Wow!</strong> That seems to be an awfully long way you've gone today. Are you sure you have the correct distance?
@@ -89,6 +90,7 @@
                 <option value="swim">swim</option>
                 <option value="walk">walk</option>
                 <option value="row">row</option>
+                <option value="golf">golf</option>
                 <option value="static-cycle">static cycle</option>
               </select>
         </div>
