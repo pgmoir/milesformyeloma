@@ -14,6 +14,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a style="cursor: pointer;" (click)="navigateAway('/')">Home</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/login')" *ngIf="!authService.authenticated">Login</a></li>
+          <li><a style="cursor: pointer;" (click)="navigateAway('/miles')" *ngIf="authService.authenticated">Miles</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/stats')" *ngIf="authService.authenticated">Stats</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/feedback')" *ngIf="authService.authenticated">Feedback</a></li>
           <li><a style="cursor: pointer;" (click)="logout()" *ngIf="authService.authenticated">Logout</a></li>

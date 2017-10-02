@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="row" *ngIf="authService.authenticated">
+    <div class="col-md-12">
+      <h3>My submitted miles</h3>
+      <p>This shows your most recent 10 mile submissions. If you need to delete any incorrectly entered mileage, just click on the relevant Remove Miles button to remove and readjust all totals.</p>
+      <div class="bs-example" id="miles">
+        <div *ngFor="let mile of miles | async">
+          <div class="bubble {{ mile.activity }}" [class.you]="isYou(mile.email)" [class.me]="isMe(mile.email)">
+            <img class="activity-image" src="../../../assets/{{ mile.activity }}.svg">
+            <p>A {{ mile.activity.replace('-', ' ') }} of {{ mile.distance }} {{ mile.measurement }} submitted </p>
+            <div class="reason" *ngIf="mile.reason != null">{{ mile.reason }}</div>
+            <div class="author">
+              by {{ mile.displayName }} on {{ mile.timestamp | date:"EEEE dd MMM yyyy" }} at {{ mile.timestamp | date:"h:mm a" }}
+            </div>
+            <hr>
+            <button class="btn btn-danger" (click)="deleteMiles(mile)">Remove Miles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
