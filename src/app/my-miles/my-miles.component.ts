@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
@@ -6,7 +7,9 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   templateUrl: './my-miles.component.html',
   styleUrls: ['./my-miles.component.css']
 })
-export class MyMilesComponent implements OnInit {
+export class MyMilesComponent implements OnInit, OnDestroy {
+  private routeSubscription: Subscription;
+
   name: string;
   activity: string;
   distance: number;
@@ -16,7 +19,8 @@ export class MyMilesComponent implements OnInit {
 
   ngOnInit() {
     // subscribe to router event
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
+    this.routeSubscription = this.activatedRoute.queryParams.subscribe((params: Params) => {
+      // console.log('mymiles', params);
       this.name = params['name'] ? params['name'] : 'I';
       this.activity = params['activity'];
       this.distance = params['distance'];
@@ -27,4 +31,9 @@ export class MyMilesComponent implements OnInit {
     });
   }
 
+
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+    // console.log('mymiles destroy');
+  }
 }

@@ -1,8 +1,8 @@
 import { AuthService } from './../auth/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -11,7 +11,9 @@ import * as firebase from 'firebase/app';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  private totalSubscription: Subscription;
+
   miles: FirebaseListObservable<any>;
   currentTotals: FirebaseObjectObservable<any>;
 
@@ -30,7 +32,8 @@ export class HomeComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.miles = db.list('miles', { query: { limitToLast: 5 } });
     this.currentTotals = db.object('/stats/m4m/all/total', { preserveSnapshot: true });
-    this.currentTotals.subscribe(snapshot => {
+    this.totalSubscription = this.currentTotals.subscribe(snapshot => {
+      // console.log('home', snapshot);
       this.totalMiles = snapshot.val();
     });
   }
@@ -40,6 +43,11 @@ export class HomeComponent implements OnInit {
     this.activity = 'cycle';
     this.resetForm();
     this.state = 1;
+  }
+
+  ngOnDestroy() {
+    this.totalSubscription.unsubscribe();
+    // console.log('home destroy');
   }
 
   resetForm() {

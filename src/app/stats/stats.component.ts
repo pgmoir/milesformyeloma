@@ -1,6 +1,7 @@
+import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from './../auth/auth.service';
 import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, OnDestroy } from '@angular/core';
 
 @Injectable()
 @Component({
@@ -8,7 +9,9 @@ import { Component, OnInit, Injectable } from '@angular/core';
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
-export class StatsComponent implements OnInit {
+export class StatsComponent implements OnDestroy {
+  userSubscription: Subscription;
+  userStatsSubscription: Subscription;
   userStats: FirebaseObjectObservable<any>;
 
   totalAll = 0;
@@ -21,12 +24,14 @@ export class StatsComponent implements OnInit {
   totalStaticCycle = 0;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
-    this.authService.user.subscribe(
+    this.userSubscription = this.authService.user.subscribe(
         (user) => {
+          // console.log('stats', user);
           const url = `/stats/${this.authService.uid}`;
           this.userStats = db.object(url, { preserveSnapshot: true });
-          this.userStats.subscribe(
+          this.userStatsSubscription = this.userStats.subscribe(
             (stats) => {
+              // console.log('stats', stats);
               this.totalAll = stats.val().all ? stats.val().all.total : 0;
               this.totalCycle = stats.val().cycle ? stats.val().cycle.total : 0;
               this.totalRun = stats.val().run ? stats.val().run.total : 0;
@@ -41,7 +46,9 @@ export class StatsComponent implements OnInit {
       );
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    this.userStatsSubscription.unsubscribe();
+    this.userSubscription.unsubscribe();
+    // console.log('stats double destroy');
   }
-
 }

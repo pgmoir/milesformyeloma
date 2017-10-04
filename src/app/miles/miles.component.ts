@@ -1,9 +1,10 @@
+import { Subscription } from 'rxjs/Subscription';
 import { OrderBySelection } from 'angularfire2/database/interfaces';
 import { AuthService } from './../auth/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, Injectable, OnDestroy } from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -12,33 +13,37 @@ import * as firebase from 'firebase/app';
   templateUrl: './miles.component.html',
   styleUrls: ['./miles.component.css']
 })
-export class MilesComponent implements OnInit {
+export class MilesComponent implements OnDestroy {
+  private userSubscription: Subscription;
+  private milesSubscription: Subscription;
 
   miles: FirebaseListObservable<any>;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
-    this.authService.user.subscribe(
+    this.userSubscription = this.authService.user.subscribe(
       (user) => {
-        console.log(this.authService.email);
+        // console.log('miles', user);
         this.miles = db.list('miles', { query: { orderByChild: 'email', equalTo: this.authService.email, limitToLast: 10 } });
-        this.miles.subscribe(
+        this.milesSubscription = this.miles.subscribe(
           (any) => {
-            console.log(any);
+            // console.log('miles', any);
           }
         );
       }
     );
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    this.milesSubscription.unsubscribe();
+    this.userSubscription.unsubscribe();
+    // console.log('miles double destroy');
   }
 
-
   deleteMiles(mile: any) {
-    console.log(mile);
-    console.log(mile.$key);
-    console.log(mile.distanceInMiles);
-    console.log(mile.activity);
+    // console.log(mile);
+    // console.log(mile.$key);
+    // console.log(mile.distanceInMiles);
+    // console.log(mile.activity);
     this.miles.remove(mile).then(
       (item) => {
         this.updateMiles('m4m', 'all', mile.distanceInMiles);

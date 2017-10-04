@@ -1,10 +1,13 @@
+import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnDestroy {
+  private userSubscription: Subscription;
+
   authenticated = false;
   displayName: string;
   email: string;
@@ -13,8 +16,9 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
-    this.user.subscribe(
+    this.userSubscription = this.user.subscribe(
       (auth) => {
+        // console.log('authService', auth);
         if (auth == null) {
           this.authenticated = false;
         } else {
@@ -25,5 +29,10 @@ export class AuthService {
         }
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+    // console.log('authService destroy');
   }
 }
