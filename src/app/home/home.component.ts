@@ -73,13 +73,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   doubleCheckDistance(distanceInMiles: number) {
-    if ((this.activity === 'cycle' && (distanceInMiles > 250 || distanceInMiles < 1)) ||
-      (this.activity === 'run' && (distanceInMiles > 60 || distanceInMiles < 1)) ||
-      (this.activity === 'walk' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
-      (this.activity === 'swim' && (distanceInMiles > 30 || distanceInMiles < 1)) ||
-      (this.activity === 'row' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
-      (this.activity === 'golf' && (distanceInMiles > 50 || distanceInMiles < 1)) ||
-      (this.activity === 'static-cycle' && (distanceInMiles > 150 || distanceInMiles < 1))) {
+    if ((this.activity === 'cycle' && (distanceInMiles > 250 || distanceInMiles <= 0)) ||
+      (this.activity === 'run' && (distanceInMiles > 60 || distanceInMiles <= 0)) ||
+      (this.activity === 'walk' && (distanceInMiles > 50 || distanceInMiles <= 0)) ||
+      (this.activity === 'swim' && (distanceInMiles > 30 || distanceInMiles <= 0)) ||
+      (this.activity === 'row' && (distanceInMiles > 50 || distanceInMiles <= 0)) ||
+      (this.activity === 'golf' && (distanceInMiles > 50 || distanceInMiles <= 0)) ||
+      (this.activity === 'static-cycle' && (distanceInMiles > 150 || distanceInMiles <= 0))) {
       return true;
     } else {
       return false;
