@@ -1,5 +1,7 @@
 # millionmilesformyeloma
-Web application for submitting miles to the Basil Skyers Myeloma Foundation charity
+This web application for submitting activity miles to the Basil Skyers Myeloma Foundation charity's A Million Mile for Multiple Myeloma was designed and developed for free by Moir Consultancy Limited as a donation to the charity. It is an Angular CLI app, that uses bootstrap for styling, and Firebase for authentication and database storage. It was developed from start to first public release in spare time over a 3 week period. Since release there has been minor updates to extend features and improve user experience and flows.
+
+The website is run for free at https://millionmilesformyeloma.firebaseapp.com/
 
 # MilesForMyeloma
 
