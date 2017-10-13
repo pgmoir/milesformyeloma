@@ -13,6 +13,7 @@
       <div id="navbar3" class="navbar-collapse" [ngClass]="{ 'collapse': topMenu }">
         <ul class="nav navbar-nav navbar-right">
           <li><a style="cursor: pointer;" (click)="navigateAway('/')">Home</a></li>
+          <li><a style="cursor: pointer;" (click)="navigateAway('/signup')" *ngIf="!authService.authenticated">Sign Up</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/login')" *ngIf="!authService.authenticated">Login</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/miles')" *ngIf="authService.authenticated">Miles</a></li>
           <li><a style="cursor: pointer;" (click)="navigateAway('/stats')" *ngIf="authService.authenticated">Stats</a></li>

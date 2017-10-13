@@ -23,6 +23,7 @@ import { LoginEmailComponent } from './auth/login-email/login-email.component';
 import { RegisterEmailComponent } from './auth/register-email/register-email.component';
 import { MyMilesComponent } from './my-miles/my-miles.component';
 import { MilesComponent } from './miles/miles.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MilesComponent } from './miles/miles.component';
     LoginEmailComponent,
     RegisterEmailComponent,
     MyMilesComponent,
-    MilesComponent
+    MilesComponent,
+    SignupComponent
    ],
   imports: [
     BrowserModule,
