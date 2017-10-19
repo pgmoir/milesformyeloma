@@ -23,7 +23,7 @@ export class MilesComponent implements OnDestroy {
     this.userSubscription = this.authService.user.subscribe(
       (user) => {
         // console.log('miles', user);
-        this.miles = db.list('miles', { query: { orderByChild: 'email', equalTo: this.authService.email, limitToLast: 10 } });
+        this.miles = db.list('miles', { query: { orderByChild: 'email', equalTo: this.authService.email, limitToLast: 3 } });
         this.milesSubscription = this.miles.subscribe(
           (any) => {
             // console.log('miles', any);
